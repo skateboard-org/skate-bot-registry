@@ -1,7 +1,7 @@
-import React, { Component } from "react";
 import { Button, Header, Icon, Modal } from "semantic-ui-react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
-import { signIn, closeSignUpModal } from "../actions";
+import { signIn, closeSignUpModal } from "../../actions";
 
 class SignInModal extends Component {
   constructor(props) {

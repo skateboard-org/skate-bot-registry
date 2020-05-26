@@ -1,7 +1,3 @@
-const credential = require("../serviceAccountKeys/firebase-adminsdk.json");
-
-const datebaseURL = "https://skate-board.firebaseio.com";
-
 const firebaseConfig = {
   apiKey: "AIzaSyDj1-XFs8nZBUSYyPgOZRGC3iePDglcpwk",
   authDomain: "skate-board.firebaseapp.com",
