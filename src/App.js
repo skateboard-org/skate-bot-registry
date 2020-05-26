@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import Channel from "./components/Channel/Channel";
+import Bot from "./components/BotPage/BotPage";
+import Browse from "./components/Browse/Browse";
 import Home from "./components/Home/Home";
 import { fetchUser } from "./actions";
 
@@ -16,9 +17,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <Route exact path="/" component={() => <Home />} />
+          <Route path="/browse" component={() => <Browse />} />
           <Route
             path="/channel/exhibitions-in-delhi-ncr"
-            component={() => <Channel />}
+            component={() => <Bot />}
           />
         </div>
       </BrowserRouter>

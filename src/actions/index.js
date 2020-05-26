@@ -6,6 +6,7 @@ import {
   subscribeTo,
   unSubscribeTo,
   getSubscriptionData,
+  getAllBots,
 } from "../config/firebase";
 import {
   FETCH_USER,
@@ -16,6 +17,7 @@ import {
   WAIT_SUBSCRIPTION,
   REPORT_ERROR_SUBSCRIPTION,
   NOT_SUBSCRIBED,
+  LOAD_BOTS,
 } from "./types";
 import notyConfig from "../config/noty.config";
 
@@ -133,6 +135,17 @@ export const getChannelState = (channelId, isUserAuthenticated = null) => (
       payload: "ready",
     });
   }
+};
+
+export const getAllBotsAction = () => (dispatch) => {
+  getAllBots().then((result) => {
+    if (!result.data.error) {
+      dispatch({
+        type: LOAD_BOTS,
+        payload: result.data.data,
+      });
+    }
+  });
 };
 
 export const subscribeChannel = (channelId) => async (dispatch) => {

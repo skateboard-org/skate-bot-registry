@@ -10,8 +10,12 @@ class HomePage extends Component {
     router: PropTypes.object,
   };
 
+  // getStarted() {
+  //   this.context.router.history.push("/channel/exhibitions-in-delhi-ncr");
+  // }
+
   getStarted() {
-    this.context.router.history.push("/channel/exhibitions-in-delhi-ncr");
+    this.context.router.history.push("/browse");
   }
 
   componentDidMount() {
@@ -35,7 +39,7 @@ class HomePage extends Component {
               className={"home-get-started-button"}
               onClick={() => this.getStarted()}
             >
-              Get Started
+              Browse Bots
               <Icon name="right arrow" />
             </Button>
           </Container>

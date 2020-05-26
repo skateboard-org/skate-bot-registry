@@ -1,4 +1,4 @@
-import "./Channel.css";
+import "./BotPage.css";
 
 import React, { Component } from "react";
 import {
@@ -12,7 +12,7 @@ import {
   Statistic,
   Responsive,
 } from "semantic-ui-react";
-import ChannelCarousel from "./ChannelCarousel";
+import ChannelCarousel from "./BotPageCarousel";
 import { connect } from "react-redux";
 import Layout from "../Layout/Layout";
 import {

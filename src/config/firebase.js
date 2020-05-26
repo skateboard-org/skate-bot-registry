@@ -19,3 +19,5 @@ export const unSubscribeTo = firebase
 export const getSubscriptionData = firebase
   .functions()
   .httpsCallable("getSubscriptionData");
+
+export const getAllBots = firebase.functions().httpsCallable("getAllBots");
