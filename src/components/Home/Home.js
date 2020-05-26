@@ -23,16 +23,10 @@ class HomePage extends Component {
       <Layout>
         <Segment textAlign="center" vertical className={"home-image"}>
           <Container text>
-            <Header
-              as="h1"
-              content="PingMe"
-              inverted
-              className={"home-heading"}
-            />
+            <Header as="h1" content="skateboard" className={"home-heading"} />
             <Header
               as="h2"
               content="connect with your industry"
-              inverted
               className={"home-subheading"}
             />
             <Button

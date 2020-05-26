@@ -51,7 +51,7 @@ class TopBar extends Component {
             <span role="img" aria-label="circus">
               🎪
             </span>
-            &nbsp;&nbsp;PingMe
+            &nbsp;&nbsp;skateboard
           </Menu.Item>
           <Menu.Menu position="right">
             {AccountButton}

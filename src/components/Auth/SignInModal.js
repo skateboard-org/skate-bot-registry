@@ -21,13 +21,13 @@ class SignInModal extends Component {
       <Modal open={signUpModal} onClose={closeSignUpModal} size="small">
         <Header
           icon="sign in"
-          content="Sign Up for PingMe"
+          content="Sign Up for Skateboard"
           textAlign="center"
         />
         <Modal.Content image>
           <p>
-            Not using PingMe? Sign up, get alerts about things you&apos;d love
-            to hear about.
+            Not using Skateboard? Sign up, get alerts about things you&apos;d
+            love to hear about.
           </p>
         </Modal.Content>
         <Modal.Actions>

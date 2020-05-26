@@ -1,31 +1,30 @@
 .home-image {
-    background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/img/landing.jpg') !important;
-    background-position: center center !important; 
-    background-repeat: no-repeat !important;
-    background-size: cover !important;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    min-Height: 60rem !important;
-    padding: 1em 0em !important;
-
+  /* background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/img/landing.jpg') !important; */
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  min-height: 95vh !important;
+  padding: 1em 0em !important;
 }
 
 .home-heading {
-    text-shadow: 5px 5px #000 !important;
-    font-Size: 4em !important;
-    font-weight: normal !important;
-    margin-bottom: 0 !important;
-    margin-top: 3em !important;
+  /* text-shadow: 5px 5px #000 !important; */
+  font-size: 5em !important;
+  font-weight: 900 !important;
+  margin-bottom: 0 !important;
+  margin-top: 3em !important;
 }
 
 .home-subheading {
-    text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1) !important;
-    font-size: 1.7em !important;
-    font-weight: normal !important;
-    margin-top: 0.5rem !important;
+  /* text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1) !important; */
+  font-size: 1em !important;
+  font-weight: normal !important;
+  margin-top: 0.5rem !important;
 }
 
-.home-get-started-button{
-    margin-top: 12rem !important;
+.home-get-started-button {
+  margin-top: 12rem !important;
 }

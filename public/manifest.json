@@ -1,15 +1,15 @@
 {
-  "short_name": "PingMe",
-  "name": "PingMe",
+  "short_name": "skateboard",
+  "name": "skateboard registry",
   "icons": [
-      {
-      "src":"favicon/favicon.png",
-      "sizes":"255x255",
-      "type":"image/png"
-      }
-    ],
+    {
+      "src": "favicon/favicon.png",
+      "sizes": "255x255",
+      "type": "image/png"
+    }
+  ],
   "start_url": "./index.html",
   "display": "standalone",
   "theme_color": "#00b5ad",
   "background_color": "#ffffff"
-}  
+}

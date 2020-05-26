@@ -1,11 +1,5 @@
-import React from 'react';
-import {
-  Container,
-  Grid,
-  List,
-  Header,
-  Segment,
-} from 'semantic-ui-react';
+import React from "react";
+import { Container, Grid, List, Header, Segment } from "semantic-ui-react";
 
 const Footer = () => (
   <Container className="footer">
@@ -15,16 +9,14 @@ const Footer = () => (
           <Grid.Column width={3}>
             <Header as="h4" content="Support" />
             <List link>
-              <List.Item as="a" href="mailto:support@pingme.cf">Mail Us</List.Item>
+              <List.Item as="a" href="mailto:support@skateboard.rocks">
+                Mail Us
+              </List.Item>
             </List>
           </Grid.Column>
           <Grid.Column width={7}>
-            <Header as="h4">
-                &copy; 2019 PingMe
-            </Header>
-            <p>
-                connect with your industry
-            </p>
+            <Header as="h4">&copy; 2019 Skateboard</Header>
+            <p>connect with your industry</p>
           </Grid.Column>
         </Grid.Row>
       </Grid>
