@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat+Brush&display=swap');
+
+.channel-slide-container {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+
+.channel-slide {
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  -webkit-background-size: cover !important;
+  -moz-background-size: cover !important;
+  -o-background-size: cover !important;
+  height: 20em;
+  width: 100%;
+}
+
+.channel-slide-content {
+  text-align: center;
+}
+
+.channel-slide-title {
+  padding-top: 4rem;
+  font-family: 'Caveat Brush', sans-serif;
+  font-size: 3.5rem;
+  line-height: 0.8; 
+  color: white;
+  text-shadow: 2px 2px 1px rgba(0, 0, 0, 1) !important;
+}
+
+.channel-slide-1 {
+  background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/carousel-images/carousel-1.png') !important;
+}
+
+.channel-slide-2 {
+  background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/carousel-images/carousel-2.png') !important;
+}
+
+.channel-slide-3 {
+  background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/carousel-images/carousel-3.png') !important;
+}
+
+.channel-slide-4 {
+  background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/carousel-images/carousel-4.png') !important;
+}
+
+.channel-slide-5 {
+  background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/carousel-images/carousel-5.png') !important;
+}
