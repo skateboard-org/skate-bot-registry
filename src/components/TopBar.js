@@ -44,6 +44,15 @@ class TopBar extends Component {
       );
     }
 
+    const newBoTPageLink = (
+      <Menu.Item
+        name={"Add New Bot"}
+        onClick={() => {
+          this.context.router.history.push("/new-bot");
+        }}
+      />
+    );
+
     return (
       <Menu fixed="top">
         <Container>
@@ -54,10 +63,11 @@ class TopBar extends Component {
             &nbsp;&nbsp;skateboard
           </Menu.Item>
           <Menu.Menu position="right">
+            {newBoTPageLink}
             {AccountButton}
-            <SignInModal />
           </Menu.Menu>
         </Container>
+        <SignInModal />
       </Menu>
     );
   }
