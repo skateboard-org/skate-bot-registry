@@ -4,13 +4,7 @@ import React, { Component } from "react";
 import {
   Container,
   Grid,
-  Header,
   Button,
-  List,
-  Accordion,
-  Icon,
-  Statistic,
-  Responsive,
   Card,
 } from "semantic-ui-react";
 import { connect } from "react-redux";

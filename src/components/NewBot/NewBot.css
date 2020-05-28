@@ -6,3 +6,8 @@
   font-size: 3rem !important;
   font-weight: bolder !important;
 }
+
+.form-tip{
+  columns: #888888;
+  margin-top: 0.3rem;
+}

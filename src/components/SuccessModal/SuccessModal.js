@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Header, Icon, Modal, Image, Grid } from "semantic-ui-react";
+import { Button, Header, Modal, Image } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 class SuccessModal extends Component {

@@ -44,14 +44,18 @@ class TopBar extends Component {
       );
     }
 
-    const newBoTPageLink = (
-      <Menu.Item
+    const newBoTPageLink = () => {
+    if (this.props.auth) {
+      return <Menu.Item
         name={"Add New Bot"}
         onClick={() => {
           this.context.router.history.push("/new-bot");
         }}
       />
-    );
+    } else {
+      return null;
+    }
+  };
 
     return (
       <Menu fixed="top">

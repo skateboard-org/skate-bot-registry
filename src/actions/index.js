@@ -4,14 +4,15 @@ import {
   signOut,
   openSignUpModal,
   closeSignUpModal,
-} from "./authActions";
+} from './authActions';
 
 import {
   getChannelState,
   getAllBotsAction,
   subscribeChannel,
   unSubscribeChannel,
-} from "./skateParkActions";
+  createNewBotAction,
+} from './skateParkActions';
 
 export {
   fetchUser,
@@ -23,4 +24,5 @@ export {
   getAllBotsAction,
   subscribeChannel,
   unSubscribeChannel,
+  createNewBotAction,
 };

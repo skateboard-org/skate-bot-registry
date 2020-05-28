@@ -1,13 +1,14 @@
-import ReactGA from "react-ga";
-import Noty from "noty";
-import notyConfig from "../config/noty.config";
+import ReactGA from 'react-ga';
+import Noty from 'noty';
+import notyConfig from '../config/noty.config';
 
 import {
   subscribeTo,
   unSubscribeTo,
   getSubscriptionData,
   getAllBots,
-} from "../config/firebase";
+  createNewBot,
+} from '../config/firebase';
 import {
   ALREADY_SUBSCRIBED,
   SUCCESSFUL_SUBSCRIPTION,
@@ -15,47 +16,12 @@ import {
   REPORT_ERROR_SUBSCRIPTION,
   NOT_SUBSCRIBED,
   LOAD_BOTS,
-} from "./types";
+  BOT_CREATION_SUCCESSFUL,
+  BOT_CREATION_FAILED,
+  BOT_CREATION_INITIATED,
+  BOT_CREATION_RESET,
+} from './types';
 
-export const getChannelState = (channelId, isUserAuthenticated = null) => (
-  dispatch
-) => {
-  dispatch({
-    type: WAIT_SUBSCRIPTION,
-    payload: "loading",
-  });
-
-  if (isUserAuthenticated) {
-    getSubscriptionData({
-      channelId,
-    }).then((result) => {
-      if (!result.data.error && result.data.message === "subscribed") {
-        dispatch({
-          type: ALREADY_SUBSCRIBED,
-          payload: "already",
-        });
-      } else if (
-        !result.data.error &&
-        result.data.message === "not subscribed"
-      ) {
-        dispatch({
-          type: NOT_SUBSCRIBED,
-          payload: "ready",
-        });
-      } else {
-        dispatch({
-          type: REPORT_ERROR_SUBSCRIPTION,
-          payload: "failed",
-        });
-      }
-    });
-  } else {
-    dispatch({
-      type: NOT_SUBSCRIBED,
-      payload: "ready",
-    });
-  }
-};
 
 export const getAllBotsAction = () => (dispatch) => {
   getAllBots().then((result) => {
@@ -68,10 +34,74 @@ export const getAllBotsAction = () => (dispatch) => {
   });
 };
 
-export const subscribeChannel = (channelId) => async (dispatch) => {
+export const createNewBotAction = bot => async (dispatch) => {
+  dispatch({
+    type: BOT_CREATION_INITIATED,
+  });
+  createNewBot({
+    bot,
+  }).then((result) => {
+    if (!result.error) {
+      dispatch({
+        type: BOT_CREATION_SUCCESSFUL,
+      });
+    } else {
+      dispatch({
+        type: BOT_CREATION_FAILED,
+      });
+    }
+    setTimeout(() => {
+      dispatch({
+        type: BOT_CREATION_RESET,
+      });
+    }, 15 * 1000);
+  });
+};
+
+export const getChannelState = (channelId, isUserAuthenticated = null) => (
+  dispatch,
+) => {
   dispatch({
     type: WAIT_SUBSCRIPTION,
-    payload: "loading",
+    payload: 'loading',
+  });
+
+  if (isUserAuthenticated) {
+    getSubscriptionData({
+      channelId,
+    }).then((result) => {
+      if (!result.data.error && result.data.message === 'subscribed') {
+        dispatch({
+          type: ALREADY_SUBSCRIBED,
+          payload: 'already',
+        });
+      } else if (
+        !result.data.error
+        && result.data.message === 'not subscribed'
+      ) {
+        dispatch({
+          type: NOT_SUBSCRIBED,
+          payload: 'ready',
+        });
+      } else {
+        dispatch({
+          type: REPORT_ERROR_SUBSCRIPTION,
+          payload: 'failed',
+        });
+      }
+    });
+  } else {
+    dispatch({
+      type: NOT_SUBSCRIBED,
+      payload: 'ready',
+    });
+  }
+};
+
+export const subscribeChannel = channelId => async (dispatch) => {
+  dispatch({
+    type: WAIT_SUBSCRIPTION,
+    payload: 'loading',
   });
   subscribeTo({
     channelId,
@@ -79,36 +109,36 @@ export const subscribeChannel = (channelId) => async (dispatch) => {
     if (!result.error && result !== null) {
       dispatch({
         type: SUCCESSFUL_SUBSCRIPTION,
-        payload: "successful",
+        payload: 'successful',
       });
       ReactGA.event({
-        category: "subscription",
-        action: "subscribe-successful",
-        label: "channel",
+        category: 'subscription',
+        action: 'subscribe-successful',
+        label: 'channel',
       });
     } else {
       new Noty({
         ...notyConfig,
-        text: "Some Error Occured",
-        type: "error",
+        text: 'Some Error Occured',
+        type: 'error',
       }).show();
       ReactGA.event({
-        category: "subscription",
-        action: "subscribe-unsuccessful",
-        label: "channel",
+        category: 'subscription',
+        action: 'subscribe-unsuccessful',
+        label: 'channel',
       });
       dispatch({
         type: REPORT_ERROR_SUBSCRIPTION,
-        payload: "failed",
+        payload: 'failed',
       });
     }
   });
 };
 
-export const unSubscribeChannel = (channelId) => async (dispatch) => {
+export const unSubscribeChannel = channelId => async (dispatch) => {
   dispatch({
     type: WAIT_SUBSCRIPTION,
-    payload: "loading",
+    payload: 'loading',
   });
   unSubscribeTo({
     channelId,
@@ -116,32 +146,32 @@ export const unSubscribeChannel = (channelId) => async (dispatch) => {
     if (!result.error && result !== null) {
       dispatch({
         type: NOT_SUBSCRIBED,
-        payload: "ready",
+        payload: 'ready',
       });
       ReactGA.event({
-        category: "subscription",
-        action: "unsubscribe-successful",
-        label: "channel",
+        category: 'subscription',
+        action: 'unsubscribe-successful',
+        label: 'channel',
       });
       new Noty({
         ...notyConfig,
-        text: "Channel Unsubscribed",
-        type: "information",
+        text: 'Channel Unsubscribed',
+        type: 'information',
       }).show();
     } else {
       new Noty({
         ...notyConfig,
-        text: "Some Error Occured",
-        type: "error",
+        text: 'Some Error Occured',
+        type: 'error',
       }).show();
       ReactGA.event({
-        category: "subscription",
-        action: "unsubscribe-unsuccessful",
-        label: "channel",
+        category: 'subscription',
+        action: 'unsubscribe-unsuccessful',
+        label: 'channel',
       });
       dispatch({
         type: REPORT_ERROR_SUBSCRIPTION,
-        payload: "failed",
+        payload: 'failed',
       });
     }
   });

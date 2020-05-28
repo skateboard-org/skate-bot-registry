@@ -1,23 +1,24 @@
 // import * as firebase from 'firebase';
 
-import * as firebase from "firebase/app";
+import * as firebase from 'firebase/app';
 
-import "firebase/auth";
-import "firebase/functions";
+import 'firebase/auth';
+import 'firebase/functions';
 
-import FirebaseConfig from "./keys";
+import FirebaseConfig from './keys';
 
 firebase.initializeApp(FirebaseConfig);
 
 export const authRef = firebase.auth();
 export const provider = new firebase.auth.GoogleAuthProvider();
 
-export const subscribeTo = firebase.functions().httpsCallable("subscribeTo");
+export const subscribeTo = firebase.functions().httpsCallable('subscribeTo');
 export const unSubscribeTo = firebase
   .functions()
-  .httpsCallable("unSubscribeTo");
+  .httpsCallable('unSubscribeTo');
 export const getSubscriptionData = firebase
   .functions()
-  .httpsCallable("getSubscriptionData");
+  .httpsCallable('getSubscriptionData');
 
-export const getAllBots = firebase.functions().httpsCallable("getAllBots");
+export const getAllBots = firebase.functions().httpsCallable('getAllBots');
+export const createNewBot = firebase.functions().httpsCallable('createNewBot');
