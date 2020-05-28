@@ -1,5 +1,5 @@
 ## Client for Skateboard Repo
 
-## Project Overview
+## Getting Started
 
-Let's people subscribe to notifications
+Add credentials in  `src/config/keys.js` before starting.

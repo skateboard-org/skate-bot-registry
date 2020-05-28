@@ -20,8 +20,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-serviceAccountKeys
-
 .firebase/hosting.YnVpbGQ.cache
 
 
+src/config/keys.js
