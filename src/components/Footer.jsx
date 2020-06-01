@@ -1,5 +1,7 @@
-import React from "react";
-import { Container, Grid, List, Header, Segment } from "semantic-ui-react";
+import React from 'react';
+import {
+  Container, Grid, List, Header, Segment,
+} from 'semantic-ui-react';
 
 const Footer = () => (
   <Container className="footer">
