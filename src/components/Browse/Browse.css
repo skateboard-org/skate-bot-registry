@@ -24,5 +24,14 @@
 
 .channel-discription-para {
   font-size: 1.2rem !important;
-  argin-bottom: 2rem !important;
+  margin-bottom: 2rem !important;
+}
+
+.bot-card {
+  min-height: 12rem !important;
+}
+
+.bot-icon {
+  float:right;
+  color: #888888AA;
 }

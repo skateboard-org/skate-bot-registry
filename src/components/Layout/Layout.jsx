@@ -24,7 +24,7 @@ class Layout extends Component {
           <SignInModal />
           {children}
         </div>
-        <Footer />
+          <Footer />
       </div>
     );
   }

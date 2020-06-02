@@ -10,10 +10,6 @@ class HomePage extends Component {
     router: PropTypes.object,
   };
 
-  // getStarted() {
-  //   this.context.router.history.push("/channel/exhibitions-in-delhi-ncr");
-  // }
-
   getStarted() {
     this.context.router.history.push("/browse");
   }
@@ -28,11 +24,11 @@ class HomePage extends Component {
         <Segment textAlign="center" vertical className={"home-image"}>
           <Container text>
             <Header as="h1" content="skateboard" className={"home-heading"} />
-            <Header
+            {/* <Header
               as="h2"
               content="connect with your industry"
               className={"home-subheading"}
-            />
+            /> */}
             <Button
               primary
               size="huge"

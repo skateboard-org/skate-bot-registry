@@ -2,6 +2,7 @@ import 'semantic-ui-css/semantic.min.css';
 import 'noty/lib/noty.css';
 // import "noty/lib/themes/semanticui.css";
 import 'noty/lib/themes/sunset.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';

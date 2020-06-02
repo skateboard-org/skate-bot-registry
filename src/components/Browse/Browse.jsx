@@ -6,6 +6,7 @@ import {
   Grid,
   Button,
   Card,
+  Image
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import ReactGA from "react-ga";
@@ -49,11 +50,24 @@ class Channel extends Component {
     const botCards = () => {
       return this.props.bots.map((bot) => {
         return (
-          <Card key={bot.name}>
-            <Card.Content header={bot.name} />
-            <Card.Content description={bot.desc} />
-            <Card.Content extra>{OpenBotButton(bot.name)}</Card.Content>
-          </Card>
+          <Grid.Column key={bot.name} computer={4} tablet={8} mobile={8}>
+            <Card className="bot-card">
+              <Card.Content>
+                <i className={"bot-icon " + bot.icon + " fa-lg"}></i>
+                <Card.Header>
+                  {bot.name}
+                </Card.Header>
+                <Card.Meta>
+                </Card.Meta>
+                <Card.Description>
+                  {bot.desc}
+                </Card.Description>
+              </Card.Content>
+              <Card.Content extra>
+                {OpenBotButton(bot.name)}
+              </Card.Content>
+            </Card>
+          </Grid.Column>
         );
       });
     };
@@ -62,13 +76,11 @@ class Channel extends Component {
       <Layout>
         <Container className="browse-page-container">
           <SuccessModal />
-          <Grid>
-            <Grid.Row>
-              <Grid.Column computer={10} tablet={16} mobile={16}>
-                <div className="channel-content">{botCards()}</div>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
+           <div className="channel-content">
+            <Grid>
+                {botCards()}
+            </Grid>
+          </div>
         </Container>
       </Layout>
     );

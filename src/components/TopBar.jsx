@@ -29,20 +29,21 @@ class TopBar extends Component {
   }
 
   render() {
-    let AccountButton;
-    if (this.props.auth) {
-      AccountButton = (
-        <Dropdown item simple text={this.props.auth.displayName}>
-          <Dropdown.Menu>
-            <Dropdown.Item onClick={this.props.signOut}>Log Out</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      );
-    } else {
-      AccountButton = (
-        <Menu.Item name={"Sign In"} onClick={this.handleTopBarSignIn} />
-      );
-    }
+    const AccountButton = () => {
+      if (this.props.auth) {
+        return (
+          <Dropdown item simple text={this.props.auth.displayName}>
+            <Dropdown.Menu>
+              <Dropdown.Item onClick={this.props.signOut}>Log Out</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        );
+      } else {
+        return (
+          <Menu.Item name={"Sign In"} onClick={this.handleTopBarSignIn} />
+        );
+      }
+    };
 
     const newBoTPageLink = () => {
     if (this.props.auth) {
@@ -58,17 +59,17 @@ class TopBar extends Component {
   };
 
     return (
-      <Menu fixed="top">
+      <Menu fixed="top" inverted>
         <Container>
           <Menu.Item as="a" header onClick={() => this.goToHome()}>
-            <span role="img" aria-label="circus">
+            {/* <span role="img" aria-label="circus">
               🎪
-            </span>
+            </span> */}
             &nbsp;&nbsp;skateboard
           </Menu.Item>
           <Menu.Menu position="right">
-            {newBoTPageLink}
-            {AccountButton}
+            {newBoTPageLink()}
+            {AccountButton()}
           </Menu.Menu>
         </Container>
         <SignInModal />
