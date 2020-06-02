@@ -1,4 +1,4 @@
-.home-image {
+.home-bg-image {
   /* background-image: linear-gradient(rgba(0,0,0,0.01), rgba(0,0,0,0.1)), url('/img/landing.jpg') !important; */
   background-position: center center !important;
   background-repeat: no-repeat !important;
@@ -15,7 +15,7 @@
   font-size: 5em !important;
   font-weight: 900 !important;
   margin-bottom: 0 !important;
-  margin-top: 3em !important;
+  margin-top: 3rem !important;
 }
 
 .home-subheading {
@@ -27,4 +27,12 @@
 
 .home-get-started-button {
   margin-top: 12rem !important;
+}
+
+.home-sign-up-text{
+  margin-top: 1rem !important;
+}
+
+.home-image {
+  margin-top: 8rem !important;
 }

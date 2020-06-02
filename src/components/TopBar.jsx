@@ -45,18 +45,27 @@ class TopBar extends Component {
       }
     };
 
-    const newBoTPageLink = () => {
-    if (this.props.auth) {
-      return <Menu.Item
-        name={"Add New Bot"}
-        onClick={() => {
-          this.context.router.history.push("/new-bot");
-        }}
-      />
-    } else {
-      return null;
-    }
-  };
+    // const newBoTPageLink = () => {
+    // if (this.props.auth) {
+    //   return <Menu.Item
+    //     name={"Add New Bot"}
+    //     onClick={() => {
+    //       this.context.router.history.push("/new-bot");
+    //     }}
+    //   />
+    // } else {
+    //   return null;
+    // }
+    // };
+
+    const browsePageLink = () => {
+        return <Menu.Item
+          name={"Browse Bots"}
+          onClick={() => {
+            this.context.router.history.push("/browse");
+          }}
+        />
+    };
 
     return (
       <Menu fixed="top" inverted>
@@ -68,7 +77,7 @@ class TopBar extends Component {
             &nbsp;&nbsp;skateboard
           </Menu.Item>
           <Menu.Menu position="right">
-            {newBoTPageLink()}
+            {browsePageLink()}
             {AccountButton()}
           </Menu.Menu>
         </Container>
