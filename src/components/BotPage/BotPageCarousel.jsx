@@ -1,8 +1,8 @@
-import React from "react";
-import Slider from "react-slick";
-import "./BotPageCarousel.css";
+import React from 'react';
+import Slider from 'react-slick';
+import './BotPageCarousel.css';
 
-const ChannelCarousel = () => {
+const BotPageCarousel = () => {
   const settings = {
     dots: false,
     infinite: true,
@@ -18,20 +18,20 @@ const ChannelCarousel = () => {
   const carouselData = [
     {
       title:
-        "Never miss any action happening at Pragati Maidan & Expo Center, Noida",
-      className: "channel-slide-1",
+        'Never miss any action happening at Pragati Maidan & Expo Center, Noida',
+      className: 'channel-slide-1',
     },
     {
       title: "Checkout what's being develoved at the bleeding edge",
-      className: "channel-slide-2",
+      className: 'channel-slide-2',
     },
     {
-      title: "Meet your fellow industry leaders",
-      className: "channel-slide-3",
+      title: 'Meet your fellow industry leaders',
+      className: 'channel-slide-3',
     },
     {
-      title: "Help build the community around your industry",
-      className: "channel-slide-4",
+      title: 'Help build the community around your industry',
+      className: 'channel-slide-4',
     },
   ];
 
@@ -50,4 +50,4 @@ const ChannelCarousel = () => {
   );
 };
 
-export default ChannelCarousel;
+export default BotPageCarousel;

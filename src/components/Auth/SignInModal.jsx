@@ -1,7 +1,9 @@
-import { Button, Header, Icon, Modal } from "semantic-ui-react";
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { signIn, closeSignUpModal } from "../../actions";
+import {
+  Button, Header, Icon, Modal,
+} from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signIn, closeSignUpModal } from '../../actions';
 
 class SignInModal extends Component {
   constructor(props) {
@@ -32,7 +34,8 @@ class SignInModal extends Component {
         </Modal.Content>
         <Modal.Actions>
           <Button color="red" size="big" onClick={signIn}>
-            <Icon name="google" /> Log In with Google
+            <Icon name="google" />
+            Log In with Google
           </Button>
         </Modal.Actions>
       </Modal>
@@ -51,5 +54,5 @@ export default connect(
     closeSignUpModal,
   },
   null,
-  { forwardRef: true }
+  { forwardRef: true },
 )(SignInModal);

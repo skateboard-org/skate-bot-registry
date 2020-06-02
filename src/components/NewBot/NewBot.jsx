@@ -20,10 +20,6 @@ import ReactGA from "react-ga";
 import Layout from "../Layout/Layout";
 import {
   openSignUpModal,
-  subscribeChannel,
-  unSubscribeChannel,
-  getChannelState,
-  getAllBotsAction,
   createNewBotAction
 } from "../../actions";
 import PropTypes from "prop-types";
@@ -258,9 +254,5 @@ const mapStateToProps = ({ auth, newBot }) => ({
 
 export default connect(mapStateToProps, {
   openSignUpModal,
-  subscribeChannel,
-  unSubscribeChannel,
-  getChannelState,
-  getAllBotsAction,
   createNewBotAction
 })(Channel);

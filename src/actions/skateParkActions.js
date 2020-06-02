@@ -3,9 +3,10 @@ import Noty from 'noty';
 import notyConfig from '../config/noty.config';
 
 import {
-  subscribeTo,
-  unSubscribeTo,
-  getSubscriptionData,
+  subscribeBot,
+  unsubscribeBot,
+  getBotSubscriptionStatus,
+  getBot,
   getAllBots,
   createNewBot,
 } from '../config/firebase';
@@ -16,12 +17,32 @@ import {
   REPORT_ERROR_SUBSCRIPTION,
   NOT_SUBSCRIBED,
   LOAD_BOTS,
+  LOAD_BOT,
+  BOT_NOT_FOUND,
   BOT_CREATION_SUCCESSFUL,
   BOT_CREATION_FAILED,
   BOT_CREATION_INITIATED,
   BOT_CREATION_RESET,
 } from './types';
 
+
+export const getBotAction = botName => async (dispatch) => {
+  getBot({
+    botName,
+  }).then((result) => {
+    if (result.data.success) {
+      dispatch({
+        type: LOAD_BOT,
+        payload: result.data.data,
+      });
+    } else {
+      dispatch({
+        type: BOT_NOT_FOUND,
+        payload: {},
+      });
+    }
+  });
+};
 
 export const getAllBotsAction = () => (dispatch) => {
   getAllBots().then((result) => {
@@ -58,7 +79,7 @@ export const createNewBotAction = bot => async (dispatch) => {
   });
 };
 
-export const getChannelState = (channelId, isUserAuthenticated = null) => (
+export const getBotStatusAction = (botName, isUserAuthenticated = null) => (
   dispatch,
 ) => {
   dispatch({
@@ -67,16 +88,16 @@ export const getChannelState = (channelId, isUserAuthenticated = null) => (
   });
 
   if (isUserAuthenticated) {
-    getSubscriptionData({
-      channelId,
+    getBotSubscriptionStatus({
+      botName,
     }).then((result) => {
-      if (!result.data.error && result.data.message === 'subscribed') {
+      if (result.data.success && result.data.message === 'subscribed') {
         dispatch({
           type: ALREADY_SUBSCRIBED,
           payload: 'already',
         });
       } else if (
-        !result.data.error
+        result.data.success
         && result.data.message === 'not subscribed'
       ) {
         dispatch({
@@ -98,13 +119,13 @@ export const getChannelState = (channelId, isUserAuthenticated = null) => (
   }
 };
 
-export const subscribeChannel = channelId => async (dispatch) => {
+export const subscribeBotAction = botName => async (dispatch) => {
   dispatch({
     type: WAIT_SUBSCRIPTION,
     payload: 'loading',
   });
-  subscribeTo({
-    channelId,
+  subscribeBot({
+    botName,
   }).then((result) => {
     if (!result.error && result !== null) {
       dispatch({
@@ -114,7 +135,7 @@ export const subscribeChannel = channelId => async (dispatch) => {
       ReactGA.event({
         category: 'subscription',
         action: 'subscribe-successful',
-        label: 'channel',
+        label: 'bot',
       });
     } else {
       new Noty({
@@ -125,7 +146,7 @@ export const subscribeChannel = channelId => async (dispatch) => {
       ReactGA.event({
         category: 'subscription',
         action: 'subscribe-unsuccessful',
-        label: 'channel',
+        label: 'bot',
       });
       dispatch({
         type: REPORT_ERROR_SUBSCRIPTION,
@@ -135,13 +156,13 @@ export const subscribeChannel = channelId => async (dispatch) => {
   });
 };
 
-export const unSubscribeChannel = channelId => async (dispatch) => {
+export const unsubscribeBotAction = botName => async (dispatch) => {
   dispatch({
     type: WAIT_SUBSCRIPTION,
     payload: 'loading',
   });
-  unSubscribeTo({
-    channelId,
+  unsubscribeBot({
+    botName,
   }).then((result) => {
     if (!result.error && result !== null) {
       dispatch({
@@ -151,11 +172,11 @@ export const unSubscribeChannel = channelId => async (dispatch) => {
       ReactGA.event({
         category: 'subscription',
         action: 'unsubscribe-successful',
-        label: 'channel',
+        label: 'bot',
       });
       new Noty({
         ...notyConfig,
-        text: 'Channel Unsubscribed',
+        text: 'Bot Removed',
         type: 'information',
       }).show();
     } else {
@@ -167,7 +188,7 @@ export const unSubscribeChannel = channelId => async (dispatch) => {
       ReactGA.event({
         category: 'subscription',
         action: 'unsubscribe-unsuccessful',
-        label: 'channel',
+        label: 'bot',
       });
       dispatch({
         type: REPORT_ERROR_SUBSCRIPTION,

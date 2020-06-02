@@ -38,10 +38,9 @@ class SuccessModal extends Component {
             rounded
           />
           <Modal.Description>
-            <Header>Successfully subscribed to the notifications!</Header>
+            <Header>Successfully added Bot!</Header>
             <p>
-              We've just mailed you the latest updates so that you don't miss
-              action anymore.
+              Open Skateboard App and click on 'update' to get your latest bots!
             </p>
           </Modal.Description>
         </Modal.Content>

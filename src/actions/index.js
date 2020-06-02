@@ -7,10 +7,11 @@ import {
 } from './authActions';
 
 import {
-  getChannelState,
+  getBotAction,
   getAllBotsAction,
-  subscribeChannel,
-  unSubscribeChannel,
+  getBotStatusAction,
+  subscribeBotAction,
+  unsubscribeBotAction,
   createNewBotAction,
 } from './skateParkActions';
 
@@ -20,9 +21,10 @@ export {
   signOut,
   openSignUpModal,
   closeSignUpModal,
-  getChannelState,
+  getBotAction,
   getAllBotsAction,
-  subscribeChannel,
-  unSubscribeChannel,
+  getBotStatusAction,
+  subscribeBotAction,
+  unsubscribeBotAction,
   createNewBotAction,
 };

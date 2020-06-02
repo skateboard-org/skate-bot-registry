@@ -11,7 +11,7 @@ export default (state = null, action) => {
     case WAIT_SUBSCRIPTION:
       return action.payload;
     case REPORT_ERROR_SUBSCRIPTION:
-      return action.payload;
+      return null;
     case NOT_SUBSCRIBED:
       return action.payload;
     default:

@@ -5,17 +5,13 @@ import {
   Container,
   Grid,
   Button,
-  Card,
-  Image
+  Card
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import ReactGA from "react-ga";
 import Layout from "../Layout/Layout";
 import {
   openSignUpModal,
-  subscribeChannel,
-  unSubscribeChannel,
-  getChannelState,
   getAllBotsAction,
 } from "../../actions";
 import PropTypes from "prop-types";
@@ -48,7 +44,7 @@ class Channel extends Component {
     );
 
     const botCards = () => {
-      return this.props.bots.map((bot) => {
+      return this.props.allBots.map((bot) => {
         return (
           <Grid.Column key={bot.name} computer={4} tablet={8} mobile={8}>
             <Card className="bot-card">
@@ -87,16 +83,13 @@ class Channel extends Component {
   }
 }
 
-const mapStateToProps = ({ auth, subscription, bots }) => ({
+const mapStateToProps = ({ auth, subscription, allBots }) => ({
   auth,
   subscription,
-  bots,
+  allBots,
 });
 
 export default connect(mapStateToProps, {
   openSignUpModal,
-  subscribeChannel,
-  unSubscribeChannel,
-  getChannelState,
   getAllBotsAction,
 })(Channel);

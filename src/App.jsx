@@ -20,10 +20,7 @@ class App extends Component {
           <Route exact path="/" component={() => <Home />} />
           <Route path="/browse" component={() => <Browse />} />
           <Route path="/new-bot" component={() => <NewBot />} />
-          <Route
-            path="/channel/exhibitions-in-delhi-ncr"
-            component={() => <Bot />}
-          />
+          <Route path="/bot/:botName" component={props => <Bot {...props} />} />
         </div>
       </BrowserRouter>
     );

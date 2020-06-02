@@ -12,13 +12,18 @@ firebase.initializeApp(FirebaseConfig);
 export const authRef = firebase.auth();
 export const provider = new firebase.auth.GoogleAuthProvider();
 
-export const subscribeTo = firebase.functions().httpsCallable('subscribeTo');
-export const unSubscribeTo = firebase
+// firebase.functions().useFunctionsEmulator('http://localhost:5001');
+
+export const subscribeBot = firebase.functions().httpsCallable('addBot');
+export const unsubscribeBot = firebase
   .functions()
-  .httpsCallable('unSubscribeTo');
-export const getSubscriptionData = firebase
+  .httpsCallable('removeBot');
+
+export const getBotSubscriptionStatus = firebase
   .functions()
-  .httpsCallable('getSubscriptionData');
+  .httpsCallable('getBotSubscriptionStatus');
 
 export const getAllBots = firebase.functions().httpsCallable('getAllBots');
 export const createNewBot = firebase.functions().httpsCallable('createNewBot');
+
+export const getBot = firebase.functions().httpsCallable('getBot');

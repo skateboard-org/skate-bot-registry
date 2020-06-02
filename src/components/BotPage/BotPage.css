@@ -1,10 +1,13 @@
+.bot-page {
+    margin-top: 4rem !important;
+}
 .channel-discription {
     margin-top: 1em !important;
     margin-bottom: 1em !important;
 }
 
 .channel-content {
-    margin-top: 1em !important;
+    margin-top: 3em !important;
     margin-bottom: 1em !important;
 }
 
@@ -18,7 +21,28 @@
     margin-bottom: 2rem !important;
 }
 
+.channel-subtitle{
+    color: #888888 !important;
+    margin-top: -1em !important;
+    font-size: 1.2rem !important;
+    font-weight: lighter !important;
+}
+
 .channel-discription-para{
     font-size: 1.2rem !important;
-    argin-bottom: 2rem !important;
+    margin-bottom: 2rem !important;
+}
+
+.bot-page-icon {
+    display: inline-block;
+    padding: 0;
+    margin-left: .75rem;
+    font-size: 2.2rem;
+    opacity: 1;
+    vertical-align: middle;
+}
+
+.botpage-dimmer{
+    margin-top: 10vh !important;
+    max-height: 90vh !important;
 }
