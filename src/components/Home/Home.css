@@ -20,9 +20,9 @@
 
 .home-subheading {
   /* text-shadow: 0.075em 0.08em 0.1em rgba(0, 0, 0, 1) !important; */
-  font-size: 1em !important;
-  font-weight: normal !important;
-  margin-top: 0.5rem !important;
+  font-size: 1.5rem !important;
+  font-weight: lighter !important;
+  margin-top: 0.2rem !important;
 }
 
 .home-get-started-button {
@@ -34,5 +34,15 @@
 }
 
 .home-image {
-  margin-top: 8rem !important;
+  margin-top: 4rem !important;
+  border: none !important;
+}
+
+.subheads {
+  margin-top: 3rem !important;
+  margin-bottom: 3rem !important;
+}
+
+.subheads-para {
+  font-size: large !important;
 }
