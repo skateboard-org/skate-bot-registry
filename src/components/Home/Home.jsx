@@ -1,11 +1,18 @@
 import "./Home.css";
 import React, { Component } from "react";
+import { connect } from 'react-redux';
 import { Container, Header, Button, Icon, Segment, Image } from "semantic-ui-react";
 import Layout from "../Layout/Layout";
 import PropTypes from "prop-types";
 import ReactGA from "react-ga";
 
+import {
+  openSignUpModal
+} from '../../actions';
+
 class HomePage extends Component {
+
+
   static contextTypes = {
     router: PropTypes.object,
   };
@@ -67,9 +74,29 @@ class HomePage extends Component {
             as making bots for skateboard is super easy, see what people make for you and themselves to use
             </p>
         </Container>
+        <Container text className="subheads">
+            <Header as="h2">
+              sign up to get into waitlist
+            </Header>
+            <p className="subheads-para">
+            skateboard is still in private beta, if you are interested, do join the waitlist by clicking on the button below. We will email you as we release it publicly
+            </p>
+            <Button basic color='red' onClick={() => this.props.openSignUpModal()}>Sign Up</Button>
+        </Container>
+        <Container text className="subheads">
+          <Header as="h2">
+            find us on Product Hunt
+          </Header>
+          <iframe src="https://cards.producthunt.com/cards/posts/228469?v=1" width="500" height="405" frameborder="0" scrolling="no" allowfullscreen></iframe>
+        </Container>
       </Layout>
     );
   }
 }
 
-export default HomePage;
+const mapStateToProps = ({}) => ({});
+
+
+export default connect(mapStateToProps, {
+  openSignUpModal,
+})(HomePage);
